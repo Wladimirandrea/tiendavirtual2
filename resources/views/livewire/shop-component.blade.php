@@ -23,7 +23,7 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">688</strong> items for you!</p>
+                                <p>Encontramos <strong class="text-brand">{{$products->total()}}</strong> productos para ti!</p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
@@ -32,16 +32,15 @@
                                             <span><i class="fi-rs-apps"></i>Show:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
-                                            <span> 50 <i class="fi-rs-angle-small-down"></i></span>
+                                            <span> {{$pageSize}} <i class="fi-rs-angle-small-down"></i></span>
                                         </div>
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="active" href="#">50</a></li>
-                                            <li><a href="#">100</a></li>
-                                            <li><a href="#">150</a></li>
-                                            <li><a href="#">200</a></li>
-                                            <li><a href="#">All</a></li>
+                                            <li><a class="{{$pageSize==10 ? 'active': ''}}" href="#" wire:click.prevent="changePageSize(10)">10</a></li>
+                                            <li><a href="{{$pageSize==15 ? 'active': ''}}" wire:click.prevent="changePageSize(15)">15</a></li>
+                                            <li><a href="{{$pageSize==20 ? 'active': ''}}" wire:click.prevent="changePageSize(20)">20</a></li>
+                                            <li><a href="{{$pageSize==30 ? 'active': ''}}" wire:click.prevent="changePageSize(30)">30</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -56,11 +55,11 @@
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="active" href="#">Featured</a></li>
-                                            <li><a href="#">Price: Low to High</a></li>
-                                            <li><a href="#">Price: High to Low</a></li>
-                                            <li><a href="#">Release Date</a></li>
-                                            <li><a href="#">Avg. Rating</a></li>
+                                            <li><a href="{{$orderBy== 'Default Sorting' ? 'active': ''}}" wire:click.prevent="changeOrderBy('Default Sorting')">Default Sorting</a></li>
+                                            <li><a href="{{$orderBy== 'Price: Low to High' ? 'active': ''}}" wire:click.prevent="changeOrderBy('Price: Low to High')">Price: Low to High</a></li>
+                                            <li><a href="{{$orderBy== 'Price: High to Low' ? 'active': ''}}" wire:click.prevent="changeOrderBy('Price: High to Low')">Price: High to Low</a></li>
+                                            <li><a href="{{$orderBy== 'Sort: By newness' ? 'active': ''}}" wire:click.prevent="changeOrderBy('Sort: By newness')">Sort: By newness</a></li>
+
                                         </ul>
                                     </div>
                                 </div>
