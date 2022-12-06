@@ -19,7 +19,7 @@
                     @endif
 
                     <div class="col-12">
-                        @if (Cart::count() > 0)
+                        @if (Cart::instance('cart')->count() > 0)
                         <div class="table-responsive">
                             <table class="table shopping-summery text-center clean">
                                 <thead>
